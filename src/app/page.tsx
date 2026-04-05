@@ -1,5 +1,7 @@
 import ScrollyCanvas from "@/components/ScrollyCanvas";
 import Projects from "@/components/Projects";
+import TechShop from "@/components/TechShop";
+import Certifications from "@/components/Certifications";
 
 export default function Home() {
   return (
@@ -14,6 +16,16 @@ export default function Home() {
         Projects is the standard layout below the scrolly section.
       */}
       <Projects />
+
+      {/* 
+        Tech Shop lists grouped technologies and skills.
+      */}
+      <TechShop />
+      
+      {/* 
+        Certifications section lists professional certificates in a vertical timeline.
+      */}
+      <Certifications />
       
       {/* Simple Footer */}
       <footer className="w-full bg-[#0a0a0a] py-8 text-center text-white/40 font-mono text-sm border-t border-white/5">

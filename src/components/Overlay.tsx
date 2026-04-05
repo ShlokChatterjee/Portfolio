@@ -38,7 +38,7 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
         className="absolute inset-0 flex flex-col items-center justify-center p-8"
       >
         <h1 className="text-5xl md:text-8xl font-bold tracking-tighter text-white text-center leading-[1.1]">
-          Shlok Chatterjee.
+          Shlok Chatterjee
         </h1>
       </motion.div>
 
@@ -48,7 +48,7 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
         className="absolute bottom-6 left-6 md:bottom-20 md:left-20 flex items-end justify-start"
       >
         <h1 className="text-5xl md:text-8xl font-bold tracking-tighter text-white leading-[1.1]">
-          Shlok Chatterjee.
+          Shlok Chatterjee
         </h1>
       </motion.div>
 
@@ -75,7 +75,7 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
           <span className="italic font-light text-white/80">design</span>{" "}
           <span className="text-gray-400">&amp;</span> <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-l from-gray-100 to-gray-600">
-            engineering.
+            engineering
           </span>
         </h2>
       </motion.div>
