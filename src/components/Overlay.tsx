@@ -11,6 +11,12 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
   const opacity1 = useTransform(scrollYProgress, [0, 0.15, 0.25], [1, 1, 0]);
   const y1 = useTransform(scrollYProgress, [0, 0.25], [0, -100]);
   const scale1 = useTransform(scrollYProgress, [0, 0.25], [1, 0.95]);
+  const display1 = useTransform(scrollYProgress, (pos) => pos > 0.22 ? "none" : "flex");
+
+  // Persistent Name (Bottom Left) -> Fades in as Section 1 fades out
+  const nameOpacity = useTransform(scrollYProgress, [0.22, 0.35], [0, 1]);
+  const nameY = useTransform(scrollYProgress, [0.22, 0.35], [50, 0]);
+  const displayName = useTransform(scrollYProgress, (pos) => pos < 0.21 ? "none" : "flex");
 
   // Section 2: Left aligned (20% to 50%)
   const opacity2 = useTransform(scrollYProgress, [0.15, 0.3, 0.45, 0.55], [0, 1, 1, 0]);
@@ -28,10 +34,20 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
     <div className="absolute inset-0 pointer-events-none z-10 font-sans mix-blend-difference pb-[env(safe-area-inset-bottom)]">
       {/* Section 1 */}
       <motion.div
-        style={{ opacity: opacity1, y: y1, scale: scale1 }}
+        style={{ opacity: opacity1, y: y1, scale: scale1, display: display1 }}
         className="absolute inset-0 flex flex-col items-center justify-center p-8"
       >
         <h1 className="text-5xl md:text-8xl font-bold tracking-tighter text-white text-center leading-[1.1]">
+          Shlok Chatterjee.
+        </h1>
+      </motion.div>
+
+      {/* Persistent Name Bottom Left */}
+      <motion.div
+        style={{ opacity: nameOpacity, y: nameY, display: displayName }}
+        className="absolute bottom-6 left-6 md:bottom-20 md:left-20 flex items-end justify-start"
+      >
+        <h1 className="text-5xl md:text-8xl font-bold tracking-tighter text-white leading-[1.1]">
           Shlok Chatterjee.
         </h1>
       </motion.div>

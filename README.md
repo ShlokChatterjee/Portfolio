@@ -11,5 +11,7 @@ i'm early in my journey and i'm not pretending otherwise. but i learn fast, i ca
 still figuring things out. shipping things anyway. growing in public. let's go. 🚀
 find me
 📬 [shlokchatterjee33@gmail.com]
+
 🔗 [https://www.linkedin.com/in/shlok-chatterjee-974111345/]
+
 🐙 [https://github.com/ShlokChatterjee]
