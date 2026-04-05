@@ -1,36 +1,15 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+hey, i'm Shlok Chatterjee
+double majoring in math + cs because apparently i enjoy suffering. (i don't, i actually love it, which might be worse.)
 
-## Getting Started
+who am i
+2nd year student who genuinely thinks linear algebra is kind of beautiful and stays up too late reading about how neural networks actually work. no, i'm not okay. yes, i'm having the time of my life.
+my two current obsessions: machine learning and web development. basically i want to understand how the smart stuff works and make it look good doing it.
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+what's my deal
+math brain meets builder brain. i like knowing why things work, not just that they work — and then immediately going to build something with that knowledge.
+i'm early in my journey and i'm not pretending otherwise. but i learn fast, i care a lot, and i will absolutely go down a rabbit hole at 2am to figure something out. that's either a green flag or a red flag depending on who you ask.
+still figuring things out. shipping things anyway. growing in public. let's go. 🚀
+find me
+📬 [shlokchatterjee33@gmail.com]
+🔗 [https://www.linkedin.com/in/shlok-chatterjee-974111345/]
+🐙 [https://github.com/ShlokChatterjee]
