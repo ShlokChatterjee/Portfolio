@@ -2,6 +2,8 @@ import ScrollyCanvas from "@/components/ScrollyCanvas";
 import Projects from "@/components/Projects";
 import TechShop from "@/components/TechShop";
 import Certifications from "@/components/Certifications";
+import Education from "@/components/Education";
+import Extras from "@/components/Extras";
 
 export default function Home() {
   return (
@@ -27,6 +29,16 @@ export default function Home() {
       */}
       <Certifications />
       
+      {/* 
+        Education section displays academic background in an animated timeline layout. 
+      */}
+      <Education />
+
+      {/* 
+        Extras section detailing extracurricular activities and soft skills.
+      */}
+      <Extras />
+
       {/* Simple Footer */}
       <footer className="w-full bg-[#0a0a0a] py-8 text-center text-white/40 font-mono text-sm border-t border-white/5">
         <p>&copy; {new Date().getFullYear()} Shlok Chatterjee. All rights reserved.</p>
