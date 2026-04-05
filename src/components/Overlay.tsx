@@ -19,7 +19,7 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
   // Section 3: Right aligned (50% to 80%)
   const opacity3 = useTransform(scrollYProgress, [0.45, 0.6, 0.75, 0.85], [0, 1, 1, 0]);
   const y3 = useTransform(scrollYProgress, [0.45, 0.6, 0.75, 0.85], [100, 0, 0, -100]);
-  
+
   // Section 4: Optional ending prompt/arrow pointing to projects (80% to 100%)
   const opacity4 = useTransform(scrollYProgress, [0.8, 0.95], [0, 1]);
   const y4 = useTransform(scrollYProgress, [0.8, 0.95], [50, 0]);
@@ -32,9 +32,6 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
         className="absolute inset-0 flex flex-col items-center justify-center p-8"
       >
         <h1 className="text-5xl md:text-8xl font-bold tracking-tighter text-white text-center leading-[1.1]">
-          <span className="block opacity-50 font-medium text-3xl md:text-5xl mb-2 tracking-tight">
-            My Name.
-          </span>
           Shlok Chatterjee.
         </h1>
       </motion.div>
@@ -45,9 +42,9 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
         className="absolute inset-0 flex flex-col items-start justify-center p-8 md:p-24"
       >
         <h2 className="text-4xl md:text-7xl max-w-2xl font-semibold tracking-tighter text-white leading-tight">
-          I build <br className="hidden md:block" />
+          Learning<br className="hidden md:block" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-500">
-            digital experiences.
+            Everyday
           </span>
         </h2>
       </motion.div>
@@ -66,15 +63,15 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
           </span>
         </h2>
       </motion.div>
-      
+
       {/* Scroll indicator down to projects */}
-      <motion.div 
+      <motion.div
         style={{ opacity: opacity4, y: y4 }}
         className="absolute bottom-12 left-0 right-0 flex justify-center"
       >
         <div className="flex flex-col items-center opacity-80 animate-pulse">
-           <span className="text-sm font-medium uppercase tracking-[0.3em] mb-4 text-white/60">Selected Works</span>
-           <div className="w-[1px] h-[50px] bg-gradient-to-b from-white/60 to-transparent"></div>
+          <span className="text-sm font-medium uppercase tracking-[0.3em] mb-4 text-white/60">Selected Works</span>
+          <div className="w-[1px] h-[50px] bg-gradient-to-b from-white/60 to-transparent"></div>
         </div>
       </motion.div>
     </div>
