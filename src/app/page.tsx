@@ -4,6 +4,7 @@ import TechShop from "@/components/TechShop";
 import Certifications from "@/components/Certifications";
 import Education from "@/components/Education";
 import Extras from "@/components/Extras";
+import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
@@ -39,10 +40,10 @@ export default function Home() {
       */}
       <Extras />
 
-      {/* Simple Footer */}
-      <footer className="w-full bg-[#0a0a0a] py-8 text-center text-white/40 font-mono text-sm border-t border-white/5">
-        <p>&copy; {new Date().getFullYear()} Shlok Chatterjee. All rights reserved.</p>
-      </footer>
+      {/* 
+        Contact section for outreach, concluding with a custom Footer.
+      */}
+      <Contact />
     </main>
   );
 }
