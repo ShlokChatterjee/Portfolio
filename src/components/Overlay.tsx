@@ -21,10 +21,12 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
   // Section 2: Left aligned (20% to 50%)
   const opacity2 = useTransform(scrollYProgress, [0.15, 0.3, 0.45, 0.55], [0, 1, 1, 0]);
   const y2 = useTransform(scrollYProgress, [0.15, 0.3, 0.45, 0.55], [100, 0, 0, -100]);
+  const display2 = useTransform(scrollYProgress, (pos) => (pos < 0.1 || pos > 0.6) ? "none" : "flex");
 
   // Section 3: Right aligned (50% to 80%)
   const opacity3 = useTransform(scrollYProgress, [0.45, 0.6, 0.75, 0.85], [0, 1, 1, 0]);
   const y3 = useTransform(scrollYProgress, [0.45, 0.6, 0.75, 0.85], [100, 0, 0, -100]);
+  const display3 = useTransform(scrollYProgress, (pos) => (pos < 0.4 || pos > 0.9) ? "none" : "flex");
 
   // Section 4: Optional ending prompt/arrow pointing to projects (80% to 100%)
   const opacity4 = useTransform(scrollYProgress, [0.8, 0.95], [0, 1]);
@@ -54,8 +56,8 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
 
       {/* Section 2 */}
       <motion.div
-        style={{ opacity: opacity2, y: y2 }}
-        className="absolute inset-0 flex flex-col items-start justify-center p-8 md:p-24"
+        style={{ opacity: opacity2, y: y2, display: display2 }}
+        className="absolute inset-0 flex flex-col items-start justify-center p-8 md:p-24 w-full h-full"
       >
         <h2 className="text-4xl md:text-7xl max-w-2xl font-semibold tracking-tighter text-white leading-tight">
           Learning<br className="hidden md:block" />
@@ -67,28 +69,17 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
 
       {/* Section 3 */}
       <motion.div
-        style={{ opacity: opacity3, y: y3 }}
-        className="absolute inset-0 flex flex-col items-end justify-center p-8 md:p-24 text-right"
+        style={{ opacity: opacity3, y: y3, display: display3 }}
+        className="absolute inset-0 flex flex-col items-end justify-center p-8 md:p-24 text-right w-full h-full"
       >
         <h2 className="text-4xl md:text-7xl max-w-3xl font-semibold tracking-tighter text-white leading-tight">
           Bridging <br />
           <span className="italic font-light text-white/80">design</span>{" "}
-          <span className="text-gray-400">&amp;</span> <br />
+          <span className="text-gray-400">&</span> <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-l from-gray-100 to-gray-600">
             engineering
           </span>
         </h2>
-      </motion.div>
-
-      {/* Scroll indicator down to projects */}
-      <motion.div
-        style={{ opacity: opacity4, y: y4 }}
-        className="absolute bottom-12 left-0 right-0 flex justify-center"
-      >
-        <div className="flex flex-col items-center opacity-80 animate-pulse">
-          <span className="text-sm font-medium uppercase tracking-[0.3em] mb-4 text-white/60">Selected Works</span>
-          <div className="w-[1px] h-[50px] bg-gradient-to-b from-white/60 to-transparent"></div>
-        </div>
       </motion.div>
     </div>
   );

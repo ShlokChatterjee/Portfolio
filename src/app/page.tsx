@@ -1,4 +1,5 @@
 import ScrollyCanvas from "@/components/ScrollyCanvas";
+import AboutMe from "@/components/AboutMe";
 import Projects from "@/components/Projects";
 import TechShop from "@/components/TechShop";
 import Certifications from "@/components/Certifications";
@@ -14,6 +15,11 @@ export default function Home() {
         It handles the image sequence + framer motion overlays.
       */}
       <ScrollyCanvas />
+
+      {/* 
+        AboutMe section using GSAP Blur reveal
+      */}
+      <AboutMe />
 
       {/* 
         Projects is the standard layout below the scrolly section.

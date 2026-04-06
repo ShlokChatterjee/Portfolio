@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 import Overlay from "./Overlay";
+import Header from "./Header";
 
 const FRAME_COUNT = 160;
 
@@ -110,6 +111,10 @@ export default function ScrollyCanvas() {
   return (
     <div ref={containerRef} className="relative w-full" style={{ height: "500vh" }}>
       <div className="sticky top-0 h-screen w-full overflow-hidden">
+        
+        {/* Top Header */}
+        <Header />
+
         {/* Loading Overlay (Optional) */}
         {!isLoaded && (
           <div className="absolute inset-0 flex items-center justify-center bg-[#121212] z-50 text-white/50">
