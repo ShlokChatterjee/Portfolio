@@ -56,7 +56,7 @@ export default function Contact() {
             className="mb-12 md:mb-16"
           >
             <h2 className="font-bold tracking-tight text-white leading-[1.1]" style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)" }}>
-              Let&apos;s build an awesome<br />project together!
+              Let&apos;s build a cool<br />project together!
             </h2>
           </motion.div>
 
@@ -146,10 +146,10 @@ export default function Contact() {
             className="absolute bottom-0 left-0 right-0 p-8 md:p-10 lg:p-16"
           >
             <p className="font-bold text-white leading-tight mb-4" style={{ fontSize: "clamp(1.4rem, 2.5vw, 2rem)" }}>
-              "I write code by day and chase frames by night &mdash; let's make something unforgettable."
+              "The right opportunity hasn&apos;t found me yet. <br />Maybe it&apos;s you."
             </p>
             <p className="text-white/60 italic text-sm md:text-base">
-              &mdash; Shlok Chatterjee
+              &mdash; Shlok
             </p>
           </motion.div>
         </div>
@@ -157,7 +157,7 @@ export default function Contact() {
 
       {/* Minimal Footer */}
       <footer className="w-full bg-[#121212] py-6 text-center text-white/30 text-[0.75rem] tracking-wide relative z-30 font-mono">
-        <p>&copy; {new Date().getFullYear()} Shlok Chatterjee &middot; Built with React &amp; Framer Motion</p>
+        <p>&copy; {new Date().getFullYear()} Shlok Chatterjee</p>
       </footer>
     </>
   );
