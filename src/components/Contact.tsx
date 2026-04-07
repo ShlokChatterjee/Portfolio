@@ -148,7 +148,7 @@ export default function Contact() {
             className="absolute bottom-0 left-0 right-0 p-8 md:p-10 lg:p-16"
           >
             <p className="font-bold text-white leading-tight mb-4" style={{ fontSize: "clamp(1.4rem, 2.5vw, 2rem)" }}>
-              "The right opportunity hasn&apos;t found me yet. <br />Maybe it&apos;s you."
+              &quot;The right opportunity hasn&apos;t found me yet. <br />Maybe it&apos;s you.&quot;
             </p>
             <p className="text-white/60 italic text-sm md:text-base">
               &mdash; Shlok
