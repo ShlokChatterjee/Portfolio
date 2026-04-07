@@ -141,14 +141,13 @@
     overflow-y: auto;
     z-index: 10;
     pointer-events: auto;
-    /* Hide off-screen by default — GSAP animates from here, preventing SSR flash */
-    transform: translateX(100%);
+    /* GSAP controls position via xPercent — no CSS transform override here */
 }
 
 [data-position='left'] .staggered-menu-panel {
     right: auto;
     left: 0;
-    transform: translateX(-100%);
+    /* GSAP controls position via xPercent — no CSS transform override here */
 }
 
 .sm-prelayers {
@@ -166,9 +165,7 @@
     left: 0;
 }
 
-[data-position='left'] .sm-prelayer {
-    transform: translateX(-100%);
-}
+
 
 .sm-prelayer {
     position: absolute;
@@ -176,8 +173,7 @@
     right: 0;
     height: 100%;
     width: 100%;
-    /* Match panel default — off-screen until GSAP takes over */
-    transform: translateX(100%);
+    /* GSAP controls position via xPercent — no CSS transform override here */
 }
 
 .sm-panel-inner {
