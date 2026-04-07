@@ -43,7 +43,7 @@ const CircularProgress = ({ percentage, colorClass }: { percentage: number, colo
 
 export default function Education() {
   return (
-    <section className="relative w-full bg-[#121212] py-24 md:py-32 px-6 flex justify-center z-30">
+    <section id="education" className="relative w-full bg-[#121212] py-24 md:py-32 px-6 flex justify-center z-30">
       <div className="max-w-4xl mx-auto w-full">
         
         {/* Section Heading */}

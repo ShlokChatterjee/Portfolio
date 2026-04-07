@@ -25,10 +25,11 @@ export default function Extras() {
   };
 
   return (
-    <section className="relative w-full bg-[#121212] py-24 md:py-32 px-6 flex justify-center z-30">
-      
+    <section id="eca" className="relative w-full bg-[#121212] py-24 md:py-32 px-6 flex justify-center z-30">
+
       {/* Easter Egg Keyframes inside a style tag */}
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @keyframes small-bounce {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(-4px); }
@@ -47,9 +48,9 @@ export default function Extras() {
       `}} />
 
       <div className="max-w-5xl mx-auto w-full">
-        
+
         {/* Heading Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -66,7 +67,7 @@ export default function Extras() {
         </motion.div>
 
         {/* 2x2 Grid */}
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
@@ -83,7 +84,7 @@ export default function Extras() {
               Squash Club Executive
             </h3>
             <p className="text-white/60 font-light leading-relaxed">
-              Helped organise tournaments, coordinate scheduling, and grow the club community &mdash; balancing competitive sport with team culture.
+              Helped organise tournaments, coordinate scheduling, and grow the club community, balancing competitive sport with team culture.
             </p>
           </motion.div>
 
@@ -104,7 +105,7 @@ export default function Extras() {
           {/* Card 3: Film Winner */}
           <motion.div variants={cardLeftVariants} className="group relative flex flex-col rounded-2xl p-8 bg-white/[0.04] backdrop-blur-[12px] border border-white/[0.08] transition-all duration-500 overflow-hidden hover:scale-[1.02] hover:border-[#F5A623]/40 hover:shadow-[0_0_24px_rgba(245,166,35,0.2)]">
             <div className="absolute left-0 top-0 bottom-0 w-[4px] bg-[#F5A623]" />
-            
+
             {/* Scan-line sweep easter egg */}
             <div className="absolute inset-0 pointer-events-none opacity-0 mix-blend-overlay animate-scan-sweep bg-gradient-to-r from-transparent via-[#F5A623]/30 to-transparent w-[30%]" />
 
@@ -122,7 +123,7 @@ export default function Extras() {
             </div>
 
             <p className="text-white/60 font-light leading-relaxed">
-              Directed and produced a short film recognised at the national level &mdash; merging visual storytelling with creative direction.
+              Directed and acted in a short film "Pratiksha"recognised at the national level, merging visual storytelling with creative direction. <a href="https://youtu.be/044ikPP2ZuY?si=DzchvJz1iNivN5Q5" target="_blank" rel="noopener noreferrer" className="text-[#F5A623] hover:underline">Click here</a> to watch it.
             </p>
           </motion.div>
 

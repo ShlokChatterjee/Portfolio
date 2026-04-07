@@ -48,7 +48,7 @@ const itemVariants: Variants = {
 
 export default function TechShop() {
   return (
-    <section className="relative w-full bg-[#121212] py-24 md:py-32 px-6 shadow-[-10px_-40px_100px_rgba(0,0,0,0.8)] z-30 flex flex-col items-center">
+    <section id="techshop" className="relative w-full bg-[#121212] py-24 md:py-32 px-6 shadow-[-10px_-40px_100px_rgba(0,0,0,0.8)] z-30 flex flex-col items-center">
 
       {/* Container to restrict max width */}
       <div className="max-w-7xl mx-auto w-full relative">

@@ -7,7 +7,7 @@ export default function AboutMe() {
   const p4 = "my two current obsessions: machine learning and web development. basically i want to understand how the smart stuff works and make it look good doing it.";
 
   return (
-    <section className="bg-[#121212] py-32 px-6 md:px-20 overflow-hidden flex justify-center items-center font-sans relative z-20">
+    <section id="about" className="bg-[#121212] py-32 px-6 md:px-20 overflow-hidden flex justify-center items-center font-sans relative z-20">
       <div className="max-w-4xl lg:max-w-5xl w-full text-left">
         <ScrollRevealText
           containerClassName="mb-14"

@@ -1,3 +1,4 @@
+import Navigation from "@/components/Navigation";
 import ScrollyCanvas from "@/components/ScrollyCanvas";
 import AboutMe from "@/components/AboutMe";
 import Projects from "@/components/Projects";
@@ -10,6 +11,7 @@ import Contact from "@/components/Contact";
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#121212] selection:bg-white/30 selection:text-white">
+      <Navigation />
       {/* 
         ScrollyCanvas is a 500vh sticky container.
         It handles the image sequence + framer motion overlays.

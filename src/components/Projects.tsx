@@ -49,7 +49,7 @@ const works: Project[] = [
 
 export default function Projects() {
   return (
-    <section className="relative w-full bg-[#121212] py-24 md:py-48 px-6 md:px-12 xl:px-24 rounded-t-[3rem] -mt-12 z-20">
+    <section id="projects" className="relative w-full bg-[#121212] py-24 md:py-48 px-6 md:px-12 xl:px-24 rounded-t-[3rem] -mt-12 z-20">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
