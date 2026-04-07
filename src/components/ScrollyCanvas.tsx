@@ -1,22 +1,22 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useScroll, useTransform, motion } from "framer-motion";
+import { useScroll, useTransform } from "framer-motion";
 import Overlay from "./Overlay";
 import Header from "./Header";
 
 const FRAME_COUNT = 160;
 
 const currentFrame = (index: number) =>
-  `/sequence/ezgif-frame-${index.toString().padStart(3, "0")}.png`;
+  `/sequence-webp/ezgif-frame-${index.toString().padStart(3, "0")}.webp`;
 
 export default function ScrollyCanvas() {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  
-  // Preload images into memory
-  const [images, setImages] = useState<HTMLImageElement[]>([]);
-  const [isLoaded, setIsLoaded] = useState(false);
+
+  // Images array — slots filled progressively as frames load
+  const imagesRef = useRef<HTMLImageElement[]>(new Array(FRAME_COUNT).fill(null));
+  const [isFirstFrameReady, setIsFirstFrameReady] = useState(false);
 
   // Scroll logic
   const { scrollYProgress } = useScroll({
@@ -24,101 +24,98 @@ export default function ScrollyCanvas() {
     offset: ["start start", "end end"],
   });
 
-  // Map scroll progress (0-1) to frame index (1-160)
+  // Map scroll progress (0–1) to frame index (1–160)
   const frameIndex = useTransform(scrollYProgress, [0, 1], [1, FRAME_COUNT]);
 
+  // ── Progressive image loader ──────────────────────────────────────────────
   useEffect(() => {
-    // Preload images logic
-    const loadedImages: HTMLImageElement[] = [];
-    let loadedCount = 0;
+    const images = imagesRef.current;
 
-    for (let i = 1; i <= FRAME_COUNT; i++) {
-      const img = new Image();
-      img.src = currentFrame(i);
-      img.onload = () => {
-        loadedCount++;
-        if (loadedCount === FRAME_COUNT) {
-          setIsLoaded(true);
-        }
-      };
-      loadedImages.push(img);
-    }
-    setImages(loadedImages);
+    // Load frame 1 first → show hero immediately
+    const first = new Image();
+    first.src = currentFrame(1);
+    first.onload = () => {
+      images[0] = first;
+      setIsFirstFrameReady(true); // hero visible now
+
+      // Load frames 2-160 in the background
+      for (let i = 2; i <= FRAME_COUNT; i++) {
+        const img = new Image();
+        img.src = currentFrame(i);
+        img.onload = () => {
+          images[i - 1] = img;
+        };
+      }
+    };
+    images[0] = first;
   }, []);
 
+  // ── Canvas rendering ──────────────────────────────────────────────────────
   useEffect(() => {
-    // Canvas rendering logic
-    if (!isLoaded || images.length === 0) return;
+    if (!isFirstFrameReady) return;
 
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // Handle window resize dynamically to fit canvas perfectly using object-fit cover logic inside canvas
     const drawImage = (img: HTMLImageElement) => {
-      // Set canvas size to window size
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
 
-      // Calculate object-fit: cover logic
       const hRatio = canvas.width / img.width;
       const vRatio = canvas.height / img.height;
       const ratio = Math.max(hRatio, vRatio);
 
-      const centerShift_x = (canvas.width - img.width * ratio) / 2;
-      const centerShift_y = (canvas.height - img.height * ratio) / 2;
+      const cx = (canvas.width - img.width * ratio) / 2;
+      const cy = (canvas.height - img.height * ratio) / 2;
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(
-        img,
-        0,
-        0,
-        img.width,
-        img.height,
-        centerShift_x,
-        centerShift_y,
-        img.width * ratio,
-        img.height * ratio
-      );
+      ctx.drawImage(img, 0, 0, img.width, img.height, cx, cy, img.width * ratio, img.height * ratio);
     };
 
-    // Draw the very first frame initially
-    drawImage(images[0]);
+    // Draw first frame immediately
+    const images = imagesRef.current;
+    if (images[0]) drawImage(images[0]);
 
-    // Handle resize
-    const handleResize = () => drawImage(images[Math.floor(frameIndex.get()) - 1] || images[0]);
+    // Resize handler
+    const handleResize = () => {
+      const idx = Math.min(Math.max(Math.floor(frameIndex.get()) - 1, 0), FRAME_COUNT - 1);
+      const img = images[idx] || images[0];
+      if (img) drawImage(img);
+    };
     window.addEventListener("resize", handleResize);
 
-    // Subscribe to framer motion changes
+    // Scroll-driven frame updates
     const unsubscribe = frameIndex.on("change", (latestIndex) => {
-      const index = Math.floor(latestIndex) - 1; // 0-based array index
-      const maxIndex = Math.min(Math.max(index, 0), FRAME_COUNT - 1);
-      
-      requestAnimationFrame(() => {
-        if (images[maxIndex]) {
-          drawImage(images[maxIndex]);
+      const idx = Math.min(Math.max(Math.floor(latestIndex) - 1, 0), FRAME_COUNT - 1);
+      // Walk back to nearest loaded frame if this one isn't ready yet
+      let img = images[idx];
+      if (!img) {
+        for (let k = idx - 1; k >= 0; k--) {
+          if (images[k]) { img = images[k]; break; }
         }
-      });
+      }
+      if (img) requestAnimationFrame(() => drawImage(img));
     });
 
     return () => {
       window.removeEventListener("resize", handleResize);
       unsubscribe();
     };
-  }, [isLoaded, images, frameIndex]);
+  }, [isFirstFrameReady, frameIndex]);
 
   return (
     <div ref={containerRef} className="relative w-full" style={{ height: "500vh" }}>
       <div className="sticky top-0 h-screen w-full overflow-hidden">
-        
+
         {/* Top Header */}
         <Header />
 
-        {/* Loading Overlay (Optional) */}
-        {!isLoaded && (
+        {/* Loading overlay — only shown until frame 1 is painted */}
+        {!isFirstFrameReady && (
           <div className="absolute inset-0 flex items-center justify-center bg-[#121212] z-50 text-white/50">
-            <span className="animate-pulse tracking-widest text-sm uppercase">Loading Experience...</span>
+            <span className="animate-pulse tracking-widest text-sm uppercase">Loading…</span>
           </div>
         )}
 
@@ -127,7 +124,7 @@ export default function ScrollyCanvas() {
           className="absolute inset-0 w-full h-full object-cover z-0 block"
         />
 
-        {/* Overlay the text content on top of canvas */}
+        {/* Overlay text on top of canvas */}
         <Overlay scrollYProgress={scrollYProgress} />
       </div>
     </div>

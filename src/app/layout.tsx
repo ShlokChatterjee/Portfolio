@@ -16,6 +16,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
+      <head>
+        {/* Preload the very first sequence frame so the hero appears instantly */}
+        <link
+          rel="preload"
+          as="image"
+          href="/sequence-webp/ezgif-frame-001.webp"
+          type="image/webp"
+        />
+      </head>
       <body className={`${inter.variable} antialiased`}>
         {children}
       </body>
