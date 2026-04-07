@@ -123,7 +123,7 @@ export default function Extras() {
             </div>
 
             <p className="text-white/60 font-light leading-relaxed">
-              Directed and acted in a short film "Pratiksha"recognised at the national level, merging visual storytelling with creative direction. <a href="https://youtu.be/044ikPP2ZuY?si=DzchvJz1iNivN5Q5" target="_blank" rel="noopener noreferrer" className="text-[#F5A623] hover:underline">Click here</a> to watch it.
+              Directed and acted in a short film &quot;Pratiksha&quot; recognised at the national level, merging visual storytelling with creative direction. <a href="https://youtu.be/044ikPP2ZuY?si=DzchvJz1iNivN5Q5" target="_blank" rel="noopener noreferrer" className="text-[#F5A623] hover:underline">Click here</a> to watch it.
             </p>
           </motion.div>
 

@@ -63,7 +63,7 @@ export default function Projects() {
           </h2>
           <p className="text-gray-400 max-w-sm text-lg md:text-xl font-light">
             Some stuff I built to learn new things.
-            <br /> PS: I'm a beginner but I don't plan on staying one.
+            <br /> PS: I&apos;m a beginner but I don&apos;t plan on staying one.
           </p>
         </motion.div>
 
