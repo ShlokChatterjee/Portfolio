@@ -17,9 +17,9 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
   const opacity2 = useTransform(scrollYProgress, [0.15, 0.3, 0.45, 0.55], [0, 1, 1, 0]);
   const y2 = useTransform(scrollYProgress, [0.15, 0.3, 0.45, 0.55], [100, 0, 0, -100]);
 
-  // Section 3: Right aligned (60% to 100%)
-  const opacity3 = useTransform(scrollYProgress, [0.55, 0.7, 0.9, 1], [0, 1, 1, 0]);
-  const y3 = useTransform(scrollYProgress, [0.55, 0.7, 0.9, 1], [100, 0, 0, -100]);
+  // Section 3: Right aligned (50% to 80%)
+  const opacity3 = useTransform(scrollYProgress, [0.45, 0.6, 0.75, 0.85], [0, 1, 1, 0]);
+  const y3 = useTransform(scrollYProgress, [0.45, 0.6, 0.75, 0.85], [100, 0, 0, -100]);
 
   return (
     <div className="absolute inset-0 pointer-events-none z-[100] font-sans pb-[env(safe-area-inset-bottom)] drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
