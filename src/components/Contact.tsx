@@ -2,6 +2,7 @@
 
 import { motion, Variants } from "framer-motion";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Contact() {
   const [isSent, setIsSent] = useState(false);
@@ -128,10 +129,11 @@ export default function Contact() {
         {/* Right Panel: Visual Card */}
         <div className="flex-1 relative min-h-[50vh] md:min-h-screen bg-[#121212] md:rounded-l-[24px] overflow-hidden">
           {/* Background Image */}
-          <img
+          <Image
             src="/contact-portrait.png"
             alt="Portrait"
-            className="absolute inset-0 w-full h-full object-cover object-[center_top]"
+            fill
+            className="absolute inset-0 object-cover object-[center_top]"
           />
 
           {/* Gradient Overlay */}
